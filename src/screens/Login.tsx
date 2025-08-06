@@ -1,16 +1,15 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
   TouchableOpacity,
-  SafeAreaView,
   StyleSheet,
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
 import BackArrow from '../../assets/back-arrow.svg';
-import { TextInput, Button } from 'react-native-paper';
+import { TextInput } from 'react-native-paper';
 import { colors } from '../constants/colors';
 import LoginButton from '../components/LoginButton';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -22,8 +21,44 @@ export default function Login(props: Login) {
   const [url, setUrl] = useState('https://www.brandimic.com');
   const [email, setEmail] = useState('ali@brandimic.com');
   const [password, setPassword] = useState('testtest');
-  const isLoginDisabled = !url.trim() || !email.trim() || !password.trim();
+
+  const [urlError, setUrlError] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+
   const insets = useSafeAreaInsets();
+
+  const validateUrl = (value: string) => {
+    const pattern = /^https?:\/\/[^\s/$.?#].[^\s]*$/i;
+    return pattern.test(value);
+  };
+
+  const validateEmail = (value: string) => {
+    const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return pattern.test(value);
+  };
+
+  const validatePassword = (value: string) => {
+    return value.length >= 6;
+  };
+
+  useEffect(() => {
+    setUrlError(url.trim() && !validateUrl(url) ? 'Invalid URL' : '');
+    setEmailError(email.trim() && !validateEmail(email) ? 'Invalid email' : '');
+    setPasswordError(
+      password.trim() && !validatePassword(password)
+        ? 'Minimum 6 characters'
+        : '',
+    );
+  }, [url, email, password]);
+
+  const isLoginDisabled =
+    !url.trim() ||
+    !email.trim() ||
+    !password.trim() ||
+    urlError !== '' ||
+    emailError !== '' ||
+    passwordError !== '';
 
   const onLoginButtonPress = () => {
     props.navigation.replace('Home');
@@ -48,8 +83,7 @@ export default function Login(props: Login) {
 
         <Text style={styles.title}>Login</Text>
         <Text style={styles.subtitle}>
-          Please enter your First, Last name and your phone number in order to
-          register
+          Please enter your URL, Email, and Password to continue.
         </Text>
 
         <TextInput
@@ -61,7 +95,9 @@ export default function Login(props: Login) {
           returnKeyType="done"
           textColor={colors.primary}
           outlineStyle={styles.inputOutline}
+          error={!!urlError}
         />
+        {urlError ? <Text style={styles.errorText}>{urlError}</Text> : null}
 
         <TextInput
           label="Username / Email"
@@ -74,7 +110,9 @@ export default function Login(props: Login) {
           textColor={colors.primary}
           returnKeyType="done"
           outlineStyle={styles.inputOutline}
+          error={!!emailError}
         />
+        {emailError ? <Text style={styles.errorText}>{emailError}</Text> : null}
 
         <TextInput
           label="Password"
@@ -86,7 +124,11 @@ export default function Login(props: Login) {
           style={[styles.input, { marginBottom: 'auto' }]}
           returnKeyType="done"
           outlineStyle={styles.inputOutline}
+          error={!!passwordError}
         />
+        {passwordError ? (
+          <Text style={styles.errorText}>{passwordError}</Text>
+        ) : null}
 
         <LoginButton
           invert
@@ -103,6 +145,13 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     backgroundColor: '#fff',
+  },
+  errorText: {
+    color: 'red',
+    marginTop: -5,
+    marginBottom: 10,
+    marginLeft: 5,
+    fontSize: 12,
   },
   cancelContainer: {
     flexDirection: 'row',

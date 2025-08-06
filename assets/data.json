@@ -1,0 +1,302 @@
+[
+  {
+    "awbNumber": "41785691400",
+    "status": "ON HOLD",
+    "fromCity": "Rabat",
+    "toCity": "Abuja",
+    "originLocation": {
+      "city": "Rabat",
+      "address": "Agdal, 9 Mohammed V Ave."
+    },
+    "destinationLocation": {
+      "city": "Abuja",
+      "address": "Maitama, 8 Gana St."
+    },
+    "contactOptions": ["WhatsApp", "Call"]
+  },
+  {
+    "awbNumber": "41785691401",
+    "status": "CANCELED",
+    "fromCity": "Mombasa",
+    "toCity": "Cairo",
+    "originLocation": {
+      "city": "Mombasa",
+      "address": "Nyali, 15 Ocean Dr."
+    },
+    "destinationLocation": {
+      "city": "Cairo",
+      "address": "Dokki, 22 Nile St."
+    },
+    "contactOptions": ["WhatsApp", "Call"]
+  },
+  {
+    "awbNumber": "41785691402",
+    "status": "CANCELED",
+    "fromCity": "Nairobi",
+    "toCity": "Rabat",
+    "originLocation": {
+      "city": "Nairobi",
+      "address": "Westlands, 7 Ring Rd."
+    },
+    "destinationLocation": {
+      "city": "Rabat",
+      "address": "Agdal, 9 Mohammed V Ave."
+    },
+    "contactOptions": ["WhatsApp", "Call"]
+  },
+  {
+    "awbNumber": "41785691403",
+    "status": "DELIVERED",
+    "fromCity": "Accra",
+    "toCity": "Mombasa",
+    "originLocation": {
+      "city": "Accra",
+      "address": "Osu, 10 Castle Rd."
+    },
+    "destinationLocation": {
+      "city": "Mombasa",
+      "address": "Nyali, 15 Ocean Dr."
+    },
+    "contactOptions": ["WhatsApp"]
+  },
+  {
+    "awbNumber": "41785691404",
+    "status": "ERROR",
+    "fromCity": "Mombasa",
+    "toCity": "Accra",
+    "originLocation": {
+      "city": "Mombasa",
+      "address": "Nyali, 15 Ocean Dr."
+    },
+    "destinationLocation": {
+      "city": "Accra",
+      "address": "Osu, 10 Castle Rd."
+    },
+    "contactOptions": ["WhatsApp", "Call"]
+  },
+  {
+    "awbNumber": "41785691405",
+    "status": "DELIVERED",
+    "fromCity": "Nairobi",
+    "toCity": "Casablanca",
+    "originLocation": {
+      "city": "Nairobi",
+      "address": "Westlands, 7 Ring Rd."
+    },
+    "destinationLocation": {
+      "city": "Casablanca",
+      "address": "Maarif, 22 Zerktouni Blvd."
+    },
+    "contactOptions": ["WhatsApp"]
+  },
+  {
+    "awbNumber": "41785691406",
+    "status": "ERROR",
+    "fromCity": "Alexandria",
+    "toCity": "Kampala",
+    "originLocation": {
+      "city": "Alexandria",
+      "address": "Smoha, 22 Max St."
+    },
+    "destinationLocation": {
+      "city": "Kampala",
+      "address": "Kololo, 19 Acacia Ave."
+    },
+    "contactOptions": ["WhatsApp"]
+  },
+  {
+    "awbNumber": "41785691407",
+    "status": "RECEIVED",
+    "fromCity": "Accra",
+    "toCity": "Alexandria",
+    "originLocation": {
+      "city": "Accra",
+      "address": "Osu, 10 Castle Rd."
+    },
+    "destinationLocation": {
+      "city": "Alexandria",
+      "address": "Smoha, 22 Max St."
+    },
+    "contactOptions": ["WhatsApp"]
+  },
+  {
+    "awbNumber": "41785691408",
+    "status": "CANCELED",
+    "fromCity": "Kampala",
+    "toCity": "Casablanca",
+    "originLocation": {
+      "city": "Kampala",
+      "address": "Kololo, 19 Acacia Ave."
+    },
+    "destinationLocation": {
+      "city": "Casablanca",
+      "address": "Maarif, 22 Zerktouni Blvd."
+    },
+    "contactOptions": ["WhatsApp", "Call"]
+  },
+  {
+    "awbNumber": "41785691409",
+    "status": "DELIVERED",
+    "fromCity": "Accra",
+    "toCity": "Rabat",
+    "originLocation": {
+      "city": "Accra",
+      "address": "Osu, 10 Castle Rd."
+    },
+    "destinationLocation": {
+      "city": "Rabat",
+      "address": "Agdal, 9 Mohammed V Ave."
+    },
+    "contactOptions": ["Call"]
+  },
+  {
+    "awbNumber": "41785691410",
+    "status": "DELIVERED",
+    "fromCity": "Lagos",
+    "toCity": "Rabat",
+    "originLocation": {
+      "city": "Lagos",
+      "address": "Ikeja, 12 Allen Ave."
+    },
+    "destinationLocation": {
+      "city": "Rabat",
+      "address": "Agdal, 9 Mohammed V Ave."
+    },
+    "contactOptions": ["WhatsApp", "Call"]
+  },
+  {
+    "awbNumber": "41785691411",
+    "status": "CANCELED",
+    "fromCity": "Rabat",
+    "toCity": "Alexandria",
+    "originLocation": {
+      "city": "Rabat",
+      "address": "Agdal, 9 Mohammed V Ave."
+    },
+    "destinationLocation": {
+      "city": "Alexandria",
+      "address": "Smoha, 22 Max St."
+    },
+    "contactOptions": ["Call", "WhatsApp"]
+  },
+  {
+    "awbNumber": "41785691412",
+    "status": "CANCELED",
+    "fromCity": "Mombasa",
+    "toCity": "Kampala",
+    "originLocation": {
+      "city": "Mombasa",
+      "address": "Nyali, 15 Ocean Dr."
+    },
+    "destinationLocation": {
+      "city": "Kampala",
+      "address": "Kololo, 19 Acacia Ave."
+    },
+    "contactOptions": ["WhatsApp"]
+  },
+  {
+    "awbNumber": "41785691413",
+    "status": "ERROR",
+    "fromCity": "Alexandria",
+    "toCity": "Abuja",
+    "originLocation": {
+      "city": "Alexandria",
+      "address": "Smoha, 22 Max St."
+    },
+    "destinationLocation": {
+      "city": "Abuja",
+      "address": "Maitama, 8 Gana St."
+    },
+    "contactOptions": ["Call"]
+  },
+  {
+    "awbNumber": "41785691414",
+    "status": "RECEIVED",
+    "fromCity": "Accra",
+    "toCity": "Abuja",
+    "originLocation": {
+      "city": "Accra",
+      "address": "Osu, 10 Castle Rd."
+    },
+    "destinationLocation": {
+      "city": "Abuja",
+      "address": "Maitama, 8 Gana St."
+    },
+    "contactOptions": ["Call"]
+  },
+  {
+    "awbNumber": "41785691415",
+    "status": "DELIVERED",
+    "fromCity": "Abuja",
+    "toCity": "Mombasa",
+    "originLocation": {
+      "city": "Abuja",
+      "address": "Maitama, 8 Gana St."
+    },
+    "destinationLocation": {
+      "city": "Mombasa",
+      "address": "Nyali, 15 Ocean Dr."
+    },
+    "contactOptions": ["WhatsApp"]
+  },
+  {
+    "awbNumber": "41785691416",
+    "status": "ON HOLD",
+    "fromCity": "Casablanca",
+    "toCity": "Nairobi",
+    "originLocation": {
+      "city": "Casablanca",
+      "address": "Maarif, 22 Zerktouni Blvd."
+    },
+    "destinationLocation": {
+      "city": "Nairobi",
+      "address": "Westlands, 7 Ring Rd."
+    },
+    "contactOptions": ["WhatsApp"]
+  },
+  {
+    "awbNumber": "41785691417",
+    "status": "CANCELED",
+    "fromCity": "Accra",
+    "toCity": "Casablanca",
+    "originLocation": {
+      "city": "Accra",
+      "address": "Osu, 10 Castle Rd."
+    },
+    "destinationLocation": {
+      "city": "Casablanca",
+      "address": "Maarif, 22 Zerktouni Blvd."
+    },
+    "contactOptions": ["Call"]
+  },
+  {
+    "awbNumber": "41785691418",
+    "status": "RECEIVED",
+    "fromCity": "Rabat",
+    "toCity": "Accra",
+    "originLocation": {
+      "city": "Rabat",
+      "address": "Agdal, 9 Mohammed V Ave."
+    },
+    "destinationLocation": {
+      "city": "Accra",
+      "address": "Osu, 10 Castle Rd."
+    },
+    "contactOptions": ["Call", "WhatsApp"]
+  },
+  {
+    "awbNumber": "41785691419",
+    "status": "RECEIVED",
+    "fromCity": "Abuja",
+    "toCity": "Nairobi",
+    "originLocation": {
+      "city": "Abuja",
+      "address": "Maitama, 8 Gana St."
+    },
+    "destinationLocation": {
+      "city": "Nairobi",
+      "address": "Westlands, 7 Ring Rd."
+    },
+    "contactOptions": ["Call"]
+  }
+]
