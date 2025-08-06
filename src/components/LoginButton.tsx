@@ -1,11 +1,40 @@
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { colors } from '../constants/colors';
+import Animated, {
+  EntryOrExitLayoutType,
+  FadeIn,
+} from 'react-native-reanimated';
 
-export default function LoginButton() {
+interface LoginButton {
+  onPress: () => any;
+  disabled?: boolean;
+  entering?: EntryOrExitLayoutType | undefined;
+  invert?: boolean;
+}
+
+export default function LoginButton(props: LoginButton) {
   return (
-    <TouchableOpacity activeOpacity={0.8} style={styles.container}>
-      <Text style={styles.text}>Login</Text>
-    </TouchableOpacity>
+    <Animated.View entering={props.entering}>
+      <TouchableOpacity
+        activeOpacity={0.8}
+        style={[
+          styles.container,
+          props.invert && styles.containerInvert,
+          props.disabled && styles.containerDisabled,
+        ]}
+        onPress={props.onPress}
+      >
+        <Text
+          style={[
+            styles.text,
+            props.invert && styles.textInvert,
+            props.disabled && styles.textDisabled,
+          ]}
+        >
+          Login
+        </Text>
+      </TouchableOpacity>
+    </Animated.View>
   );
 }
 
@@ -14,9 +43,11 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     alignItems: 'center',
     padding: 15,
-    width: '90%',
     borderRadius: 10,
-    alignSelf: 'center',
   },
+  containerDisabled: { backgroundColor: colors.lightGray },
+  containerInvert: { backgroundColor: colors.primary },
   text: { color: colors.primary, fontSize: 16, fontWeight: '700' },
+  textDisabled: { color: colors.darkGray },
+  textInvert: { color: colors.white },
 });
