@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import BootSplash from 'react-native-bootsplash';
 import Animated, {
   interpolateColor,
@@ -9,36 +9,46 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import Logo from '../../assets/logo.svg';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { runOnJS } from 'react-native-worklets';
 
 export default function useAnimatedHideSplashScreen() {
+  const [isSplashAnimationDone, setIsSplashAnimationDone] = useState(false);
   const opacity = useSharedValue(1);
   const scale = useSharedValue(1);
-  const progress = useSharedValue(1);
+  const progress = useSharedValue(0);
 
   useEffect(() => {
-    BootSplash.hide();
+    setTimeout(BootSplash.hide, 50);
 
     // Grow the logo half way
-    scale.value = withSpring(
-      2,
-      {
-        duration: 500,
-      },
-      () => {
-        scale.value = withDelay(500, withTiming(10, { duration: 500 }));
-        opacity.value = withDelay(500, withTiming(10, { duration: 500 }));
-        progress.value = withDelay(1000, withTiming(1, { duration: 500 }));
-      },
+    scale.value = withDelay(
+      100,
+      withSpring(
+        3,
+        {
+          duration: 800,
+          dampingRatio: 0.8,
+        },
+        ifFinished => {
+          scale.value = withDelay(800, withTiming(1000, { duration: 1000 }));
+          opacity.value = withDelay(800, withTiming(0, { duration: 2000 }));
+          progress.value = withDelay(
+            800,
+            withTiming(1, { duration: 1000 }, ifFinished => {
+              if (ifFinished) runOnJS(setIsSplashAnimationDone)(true);
+            }),
+          );
+        },
+      ),
     );
   }, []);
 
   const containerStyle = useAnimatedStyle(() => {
-    'worklet';
     const backgroundColor = interpolateColor(
       progress.value,
       [0, 1],
-      ['ffffff', '2F50C1'],
+      ['#ffffff', '#2F50C1'],
     );
     return { backgroundColor };
   });
@@ -50,10 +60,16 @@ export default function useAnimatedHideSplashScreen() {
 
   return {
     containerStyle,
-    Logo: (
-      <Animated.View style={logoStyle}>
-        <Logo width={50} height={50} />
-      </Animated.View>
-    ),
+    Logo: !isSplashAnimationDone ? (
+      <View style={styles.container}>
+        <Animated.View style={logoStyle}>
+          <Logo width={50} />
+        </Animated.View>
+      </View>
+    ) : undefined,
   };
 }
+
+const styles = StyleSheet.create({
+  container: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+});
