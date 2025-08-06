@@ -17,6 +17,8 @@ export default function SearchInput(props: SearchInput) {
       icon={() => <SearchIcon width={24} height={24} />}
       placeholder="Search"
       style={styles.container}
+      clearIcon={() => null}
+      placeholderTextColor={'gray'}
     />
   );
 }

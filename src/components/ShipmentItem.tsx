@@ -32,6 +32,16 @@ interface ShipmentItem {
   item: AWBItem;
   markAll: boolean;
 }
+type ColorCode = {
+  [k in AWBStatus]: string[];
+};
+const statusColorCode: ColorCode = {
+  RECEIVED: [colors.primary100, colors.primary],
+  'ON HOLD': ['#FFF3D5', '#DB7E21'],
+  CANCELED: ['#F4F2F8', '#58536E'],
+  DELIVERED: ['#E3FAD6', '#208D28'],
+  ERROR: ['#FEE3D4', '#D12030'],
+};
 
 const ShipmentItem = React.memo(({ item, markAll }: ShipmentItem) => {
   const [checked, setChecked] = useState(false);
@@ -61,7 +71,17 @@ const ShipmentItem = React.memo(({ item, markAll }: ShipmentItem) => {
           </View>
         </View>
         <View style={styles.statusContainer}>
-          <Text style={styles.status}>{item.status}</Text>
+          <Text
+            style={[
+              styles.status,
+              {
+                color: statusColorCode[item.status][1],
+                backgroundColor: statusColorCode[item.status][0],
+              },
+            ]}
+          >
+            {item.status}
+          </Text>
         </View>
         <View style={styles.expandWrapper}>
           <Expand width={12} />

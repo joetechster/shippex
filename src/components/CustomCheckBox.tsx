@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, TouchableOpacity, StyleSheet } from 'react-native';
 import { colors } from '../constants/colors';
-
+import Check from '../../assets/check.svg';
 interface CustomCheckBox {
   checked: boolean;
   onChange?: () => any;
@@ -27,9 +27,7 @@ export default function CustomCheckBox({
       ]}
       activeOpacity={0.7}
     >
-      {/* {checked && (
-        <View style={[styles.checkMark, { backgroundColor: checkColor }]} />
-      )} */}
+      {checked && <Check width={10} />}
     </TouchableOpacity>
   );
 }
