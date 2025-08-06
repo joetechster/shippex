@@ -30,15 +30,17 @@ export default function useAnimatedHideSplashScreen() {
           duration: 800,
           dampingRatio: 0.8,
         },
-        ifFinished => {
-          scale.value = withDelay(800, withTiming(1000, { duration: 1000 }));
-          opacity.value = withDelay(800, withTiming(0, { duration: 2000 }));
-          progress.value = withDelay(
-            800,
-            withTiming(1, { duration: 1000 }, ifFinished => {
-              if (ifFinished) runOnJS(setIsSplashAnimationDone)(true);
-            }),
-          );
+        isFinished => {
+          if (isFinished) {
+            scale.value = withDelay(800, withTiming(1000, { duration: 1000 }));
+            opacity.value = withDelay(800, withTiming(0, { duration: 2000 }));
+            progress.value = withDelay(
+              800,
+              withTiming(1, { duration: 500 }, ifFinished => {
+                if (ifFinished) runOnJS(setIsSplashAnimationDone)(true);
+              }),
+            );
+          }
         },
       ),
     );

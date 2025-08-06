@@ -27,7 +27,12 @@ export default function NativeStack() {
           component={Login}
           options={{ headerShown: false, presentation: 'modal' }}
         />
-        <Stack.Screen name="Home">{BottomTabs}</Stack.Screen>
+        <Stack.Screen
+          name="Home"
+          options={{ headerShown: false, presentation: 'card' }}
+        >
+          {BottomTabs}
+        </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );

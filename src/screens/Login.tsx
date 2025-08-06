@@ -26,7 +26,7 @@ export default function Login(props: Login) {
   const insets = useSafeAreaInsets();
 
   const onLoginButtonPress = () => {
-    props.navigation.navigate('Home');
+    props.navigation.replace('Home');
   };
 
   return (
