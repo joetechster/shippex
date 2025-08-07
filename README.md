@@ -1,97 +1,179 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
-# Getting Started
+# Shipment Tracker App
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+A React Native application written in TypeScript, designed for drivers to manage their shipment status. This app includes a splash screen with animation, a login screen with validation, and a list of shipments with their respective statuses.
 
-## Step 1: Start Metro
+## Demo
+<a href="https://drive.google.com/file/d/1NnkcHUr5VDsCWZ6i-o2xsqn3IL1qEa6p/view?usp=sharing">Watch demo<a/>
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## Features
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+-   Splash screen with animation
+-   Login screen with validation and animation
+-   Shipment list displaying statuses (Received, Canceled, etc.)
+-   Pull-to-refresh functionality for the shipment list
+-   Smooth navigation with transition animations
+-   [Optional] Search or filtering for shipments
 
-```sh
-# Using npm
-npm start
+## Installation
 
-# OR using Yarn
-yarn start
-```
+1.  Clone the repository:
+    
+    ```bash
+    git clone https://github.com/joetechster/shippex.git
+    
+    ```
+    
+2.  Navigate to the project directory:
+    
+    ```bash
+    cd shippex
+    
+    ```
+    
+3.  Install dependencies:
+    
+    ```bash
+    npm install
+    
+    ```
+    
+    or
+    
+    ```bash
+    yarn install
+    
+    ```
+    
+4.  For iOS, install CocoaPods dependencies:
+    
+    ```bash
+    cd ios
+    pod install
+    cd ..
+    
+    ```
+    
 
-## Step 2: Build and run your app
-
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+## Running the App
 
 ### Android
 
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
-```
+1.  Start Metro:
+    
+    ```bash
+    npm start
+    
+    ```
+    
+    or
+    
+    ```bash
+    yarn start
+    
+    ```
+    
+2.  In another terminal, run:
+    
+    ```bash
+    npm run android
+    
+    ```
+    
+    or
+    
+    ```bash
+    yarn android
+    
+    ```
+    
 
 ### iOS
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+1.  Start Metro:
+    
+    ```bash
+    npm start
+    
+    ```
+    
+    or
+    
+    ```bash
+    yarn start
+    
+    ```
+    
+2.  In another terminal, run:
+    
+    ```bash
+    npm run ios
+    
+    ```
+    
+    or
+    
+    ```bash
+    yarn ios
+    
+    ```
+    
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+## Building the APK
 
-```sh
-bundle install
-```
+To build the APK for Android, follow these steps:
 
-Then, and every time you update your native dependencies, run:
+1.  Navigate to the  `android`  directory:
+    
+    ```bash
+    cd android
+    
+    ```
+    
+2.  Run the following command to build the release APK:
+    
+    ```bash
+    ./gradlew assembleRelease
+    
+    ```
+    
+3.  The APK will be located at  `android/app/build/outputs/apk/release/app-release.apk`
+    
 
-```sh
-bundle exec pod install
-```
+## Usage
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+-   Upon launching the app, you will see the splash screen with animation.
+-   After the splash screen, you will be directed to the login screen. Enter your credentials to log in.
+-   Once logged in, you will see the shipment list screen, where you can view the list of shipments and their statuses.
+-   You can pull down to refresh the shipment list.
+-   Use the search or filter functionality to find specific shipments.
 
-```sh
-# Using npm
-npm run ios
+## Project Structure
 
-# OR using Yarn
-yarn ios
-```
+The project follows a standard React Native structure, which may include:
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+Directory/File
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+Description
 
-## Step 3: Modify your app
+`src/`
 
-Now that you have successfully run the app, let's make changes!
+Contains the source code, including navigation, screens, and components
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+`android/`
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+Android-specific code and configuration
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+`ios/`
 
-## Congratulations! :tada:
+iOS-specific code and configuration
 
-You've successfully run and modified your React Native App. :partying_face:
+`App.tsx`
 
-### Now what?
+Entry point of the application, setting up navigation
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+## Additional Notes
 
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+-   The app is built using modern React Native features and TypeScript for type safety and maintainability.
+-   The UI design is likely based on a Figma file, ensuring a polished and consistent user experience.
+-   For further details on React Native setup or troubleshooting, refer to the  [React Native Documentation](https://reactnative.dev/docs/getting-started).
