@@ -18,6 +18,10 @@ import SearchInput from '../components/SearchInput';
 import CustomCheckBox from '../components/CustomCheckBox';
 import data from '../../assets/data.json';
 import ShipmentItem, { AWBItem } from '../components/ShipmentItem';
+import Animated, { FadeIn } from 'react-native-reanimated';
+
+const AnimatedTouchableOpacity =
+  Animated.createAnimatedComponent(TouchableOpacity);
 
 export default function Shipments() {
   const [query, setQuery] = useState('');
@@ -141,24 +145,25 @@ export default function Shipments() {
 
           <Text style={{ marginVertical: 20 }}>SHIPMENT STATUS</Text>
           <View style={styles.statusListContainer}>
-            {statuses.map(status => {
+            {statuses.map((status, index) => {
               const isSelected = selectedStatuses.includes(status);
               return (
-                <View
+                <AnimatedTouchableOpacity
+                  entering={FadeIn.delay(500).delay(100 * index)}
                   key={status}
                   style={{
                     padding: 1,
-                    backgroundColor: isSelected ? colors.primary : undefined,
+                    backgroundColor: isSelected ? colors.primary : 'white',
                     borderRadius: 11,
                   }}
+                  onPress={() => toggleStatus(status)}
+                  activeOpacity={0.8}
                 >
-                  <TouchableOpacity
+                  <View
                     style={[
                       styles.statusItem,
                       isSelected && styles.statusItemSelected,
                     ]}
-                    onPress={() => toggleStatus(status)}
-                    activeOpacity={0.8}
                   >
                     <Text
                       style={[
@@ -168,8 +173,8 @@ export default function Shipments() {
                     >
                       {status}
                     </Text>
-                  </TouchableOpacity>
-                </View>
+                  </View>
+                </AnimatedTouchableOpacity>
               );
             })}
           </View>

@@ -7,6 +7,7 @@ import {
   StyleSheet,
   KeyboardAvoidingView,
   Platform,
+  StatusBar,
 } from 'react-native';
 import BackArrow from '../../assets/back-arrow.svg';
 import { TextInput } from 'react-native-paper';
@@ -65,7 +66,13 @@ export default function Login(props: Login) {
   };
 
   return (
-    <View style={[styles.container, { paddingBottom: insets.bottom + 20 }]}>
+    <View
+      style={[
+        styles.container,
+        { paddingBottom: insets.bottom + 20 },
+        Platform.OS !== 'ios' && { paddingTop: insets.top + 20 },
+      ]}
+    >
       <KeyboardAvoidingView
         style={{ flex: 1 }}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -136,6 +143,9 @@ export default function Login(props: Login) {
           disabled={isLoginDisabled}
         />
       </KeyboardAvoidingView>
+      {Platform.OS !== 'ios' && (
+        <StatusBar barStyle="dark-content" backgroundColor={colors.primary} />
+      )}
     </View>
   );
 }

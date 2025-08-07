@@ -11,7 +11,8 @@ export type AWBStatus =
   | 'ERROR'
   | 'DELIVERED'
   | 'CANCELED'
-  | 'ON HOLD';
+  | 'ON HOLD'
+  | string;
 
 export interface Location {
   city: string;
@@ -25,7 +26,7 @@ export interface AWBItem {
   toCity: string;
   originLocation: Location;
   destinationLocation: Location;
-  contactOptions: ('Call' | 'WhatsApp')[];
+  contactOptions: ('Call' | 'WhatsApp' | string)[];
 }
 
 interface ShipmentItem {

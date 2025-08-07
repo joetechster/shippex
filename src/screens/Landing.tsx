@@ -1,4 +1,4 @@
-import { StatusBar, StyleSheet, View } from 'react-native';
+import { Alert, StatusBar, StyleSheet, View } from 'react-native';
 import Animated, { FadeIn } from 'react-native-reanimated';
 import useAnimatedHideSplashScreen from '../hooks/useAnimateHideSplashScreen';
 import LogoNamed from '../../assets/logo-named.svg';
@@ -28,7 +28,7 @@ export default function Landing(props: Landing) {
         <View
           style={[
             styles.contentContainer,
-            { paddingTop: insets.top, paddingBottom: insets.bottom },
+            { paddingTop: insets.top, paddingBottom: insets.bottom + 20 },
           ]}
         >
           <AnimatedLogoNamed
